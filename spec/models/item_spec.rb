@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
 
-  let(:item) { Item.new(title: "Item title") }
+  let(:item) { build(:item) }
 
   describe "validations" do
 

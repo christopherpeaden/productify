@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
 
-  let(:category) { Category.create(title: "Category title") }
+  let(:category) { build(:category_with_lists) }
 
   describe "validations" do
 
@@ -24,6 +24,13 @@ RSpec.describe Category, type: :model do
 
     it "responds to lists" do
       expect(category).to respond_to(:lists)
+    end
+  end
+
+  describe "relationships" do
+
+    it "has many lists" do
+      expect(category.lists.count).to be > 0
     end
   end
 

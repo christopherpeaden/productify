@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe List, type: :model do
 
-  let(:list) { List.new(title: "List title") }
+  let(:list) { build(:list) }
 
   describe "validations" do
 
