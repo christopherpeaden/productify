@@ -28,7 +28,6 @@ require 'capybara/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

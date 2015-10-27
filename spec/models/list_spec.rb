@@ -1,35 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe List, type: :model do
+RSpec.describe List do
 
-  let(:list) { build(:list) }
+  describe "validation" do
 
-  describe "validations" do
+    subject { build(:list) }
+    let(:list) { subject }
 
-    it "is valid" do
-      expect(list).to be_valid
-    end
+    it { should be_valid }
 
-    it "cannot have a blank title" do
+    it "rejects blank title" do
       list.title = ""
       expect(list).to_not be_valid
     end
   end
 
-
-  describe "available messages" do
-
-    it "responds to title" do
-      expect(list).to respond_to(:title)
-    end
-
-    it "responds to category" do
-      expect(list).to respond_to(:category)
-    end
-
-    it "responds to items" do
-      expect(list).to respond_to(:items)
-    end
+  describe "associations" do
+    it { should respond_to(:category) }
+    it { should respond_to(:items) }
   end
       
 end

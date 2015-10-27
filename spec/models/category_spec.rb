@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do
+RSpec.describe Category do
 
-  let(:category) { build(:category_with_lists) }
 
-  describe "validations" do
+  describe "validation" do
 
-    it "is valid" do
-      expect(category).to be_valid
-    end
+    subject { build(:category) }
+    let(:category) { subject }
+
+    it { should be_valid }
 
     it "cannot have a blank title" do
       category.title = ""
@@ -16,22 +16,8 @@ RSpec.describe Category, type: :model do
     end
   end
 
-  describe "receives a message" do
-    
-    it "responds to title" do
-      expect(category).to respond_to(:title)
-    end
-
-    it "responds to lists" do
-      expect(category).to respond_to(:lists)
-    end
-  end
-
-  describe "relationships" do
-
-    it "has many lists" do
-      expect(category.lists.count).to be > 0
-    end
+  describe "associations" do
+    it { should respond_to(:lists) }
   end
 
 end
