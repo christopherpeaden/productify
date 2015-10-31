@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe CategoriesController, type: :controller do
+RSpec.describe ItemsController, type: :controller do
 
-  let(:category) { create(:category) }
+  let(:item) { create(:item) }
 
   describe "GET #new" do
-    it "renders the new category form" do
+    it "renders the new item form" do
       get :new
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:new)
@@ -14,25 +14,25 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe "POST #create" do
     context "valid" do
-      it "creates a new category" do
-        post :create, category: attributes_for(:category)
-        expect(Category.count).to eq 1
+      it "creates a new item" do
+        post :create, item: attributes_for(:item)
+        expect(Item.count).to eq 1
       end
 
-      it "redirects to new category" do
-        post :create, category: attributes_for(:category)
-        expect(response).to redirect_to Category.first
+      it "redirects to new item" do
+        post :create, item: attributes_for(:item)
+        expect(response).to redirect_to Item.first
       end
     end
 
     context "invalid" do
       it "does not create a new feed" do
-        post :create, category: attributes_for(:category, title: nil)
-        expect(Category.count).to eq 0
+        post :create, item: attributes_for(:item, title: nil)
+        expect(Item.count).to eq 0
       end
 
       it "renders the new view" do
-        post :create, category: attributes_for(:category, title: nil)
+        post :create, item: attributes_for(:item, title: nil)
         expect(response).to render_template :new
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe "GET #show" do
     it "renders show template" do
-      get :show, id: category
+      get :show, id: item
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
     end
@@ -56,7 +56,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe "#edit" do
     it "renders edit template" do
-      get :edit, id: category
+      get :edit, id: item
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:edit)
     end
@@ -64,16 +64,16 @@ RSpec.describe CategoriesController, type: :controller do
 
 
   describe "PATCH #update" do
-    it "changes category data" do
-      put :update, id: category, category: attributes_for(:category, title: "New title")
-      expect(Category.first.title).to_not eq category.title
+    it "changes item data" do
+      put :update, id: item, item: attributes_for(:item, title: "New title")
+      expect(Item.first.title).to_not eq item.title
     end
   end
 
   describe "DELETE #destroy" do
-    it "deletes the category" do
-      delete :destroy, id: category
-      expect(Category.count).to eq 0 
+    it "deletes the item" do
+      delete :destroy, id: item
+      expect(Item.count).to eq 0 
     end
   end
 end

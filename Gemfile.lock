@@ -36,6 +36,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (6.0.3)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -112,6 +115,7 @@ GEM
     nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    normalize-rails (3.0.3)
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -197,8 +201,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -216,6 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   better_errors
   capybara
   coffee-rails (~> 4.1.0)
@@ -224,6 +227,7 @@ DEPENDENCIES
   guard-rails
   jbuilder (~> 2.0)
   jquery-rails
+  normalize-rails
   pg
   pry-rails
   rails (= 4.2.3)
@@ -232,7 +236,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   therubyracer
-  turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
