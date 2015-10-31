@@ -1,2 +1,5 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<h1><%= @item.title %></h1>
+ 
+  <%= link_to "Back", items_path %>
+  <%= link_to "Edit", edit_item_path %>
+  <%= link_to "Delete", item_path, method: :delete, data: { confirm: "Delete this category?" } %>

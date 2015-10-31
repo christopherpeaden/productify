@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @cateogories = Category.all
+    @categories = Category.all
   end
 
   def edit

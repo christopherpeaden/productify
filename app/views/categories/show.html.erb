@@ -1,2 +1,5 @@
-<h1>Category#show</h1>
-<p>Find me in app/views/category/show.html.erb</p>
+<h1><%= @category.title %></h1>
+ 
+  <%= link_to "Back", categories_path %>
+  <%= link_to "Edit", edit_category_path %>
+  <%= link_to "Delete", category_path, method: :delete, data: { confirm: "Delete this category?" } %>

@@ -22,7 +22,7 @@ class ListsController < ApplicationController
   end
 
   def index
-    @cateogories = List.all
+    @lists = List.all
   end
 
   def edit
