@@ -2,24 +2,47 @@ require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
 
+  let(:category) { create(:category) }
+
   describe "GET #new" do
-    it "returns http success" do
+    it "renders the new category form" do
       get :new
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:new)
     end
   end
 
-  describe "GET #edit" do
-    it "returns http success" do
-      get :edit
-      expect(response).to have_http_status(:success)
+  describe "POST #create" do
+    context "valid" do
+      it "creates a new category" do
+        post :create, category: attributes_for(:category)
+        expect(Category.count).to eq 1
+      end
+
+      it "redirects to new category" do
+        post :create, category: attributes_for(:category)
+        expect(response).to redirect_to Category.first
+      end
+    end
+
+    context "invalid" do
+      it "does not create a new feed" do
+        post :create, category: attributes_for(:category, title: nil)
+        expect(Category.count).to eq 0
+      end
+
+      it "renders the new view" do
+        post :create, category: attributes_for(:category, title: nil)
+        expect(response).to render_template :new
+      end
     end
   end
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      get :show, id: category
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:show)
     end
   end
 
@@ -27,28 +50,30 @@ RSpec.describe CategoriesController, type: :controller do
     it "returns http success" do
       get :index
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:index)
     end
   end
 
-  describe "GET #edit" do
+  describe "#edit" do
     it "returns http success" do
-      get :edit
+      get :edit, id: category
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:edit)
     end
   end
 
-  describe "GET #update" do
+
+  describe "PATCH #update" do
     it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
+      put :update, id: category, category: attributes_for(:category, title: "New title")
+      expect(Category.first.title).to_not eq category.title
     end
   end
 
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
+  describe "DELETE #destroy" do
+    it "deletes the category" do
+      delete :destroy, id: category
+      expect(Category.count).to eq 0 
     end
   end
-
 end

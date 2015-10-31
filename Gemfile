@@ -24,5 +24,6 @@ group :development, :test do
   gem 'better_errors'
   gem 'pry-rails'
   gem 'guard-rails'
+  gem 'faker'
 end
 

@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Item do
 
+  let(:item) { build(:item) }
+
   describe "validation" do
 
-    subject { build(:item) }
-    let(:item) { subject }
-
-    it { should be_valid }
+    it "has a valid factory" do
+      expect(item).to be_valid
+    end 
 
     it "rejects blank title" do
       item.title = ""
@@ -15,7 +16,7 @@ RSpec.describe Item do
     end
   end
 
-  describe "available messages" do
+  describe "associations" do
     it { should respond_to(:list) }
   end
 
