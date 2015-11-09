@@ -11,5 +11,5 @@
 
 class Item < ActiveRecord::Base
   belongs_to :list
-  validates :title, presence: true, uniqueness: true
+  validates :content, presence: true, uniqueness: true
 end

@@ -1,5 +1,7 @@
 <h1><%= @list.title %></h1>
+<h1><%= @list.description %></h1>
  
-  <%= link_to "Back", lists_path %>
-  <%= link_to "Edit", edit_list_path %>
-  <%= link_to "Delete", list_path, method: :delete, data: { confirm: "Delete this category?" } %>
+  <%= render @list.items %>
+  <%= render 'items/form' %>
+
+  <%= link_to "Back", category_path(@category) %>

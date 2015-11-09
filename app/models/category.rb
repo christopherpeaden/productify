@@ -9,6 +9,6 @@
 #
 
 class Category < ActiveRecord::Base
-  has_many :lists
+  has_many :lists, dependent: :destroy
   validates :title, presence: true, uniqueness: true
 end
