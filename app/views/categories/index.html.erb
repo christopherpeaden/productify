@@ -9,4 +9,10 @@
 <% end %>
 
   <%= link_to "New Category", new_category_path %>
-  
+
+  <h2>Priority</h2>
+  <div id="priorities">
+    <% Item.all.each do |item| %>
+      <p><%= item.content if item.priority == true %></p>
+    <% end %>
+  </div>
