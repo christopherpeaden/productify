@@ -17,14 +17,7 @@ class ListsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def show
-  end
-
-  def index
-    @lists = List.all
   end
 
   def edit
@@ -56,6 +49,6 @@ class ListsController < ApplicationController
     end
 
     def find_category
-      @category = Category.find_by(id: params[:category_id]) || Category.find_by(id: params[:item][:category])
+      @category = Category.find(params[:category_id])
     end
 end

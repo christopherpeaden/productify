@@ -1,34 +1,19 @@
 class ItemsController < ApplicationController
-  before_action :find_item, only: [:show, :edit, :update, :destroy]
-
-  def new
-  end
+  before_action :find_list
 
   def create
     @category = Category.find(params[:item][:category_id])
-    @list = List.find(params[:list_id])
     @item = @list.items.create(item_params)
 
     if @item.save
       redirect_to list_path(@list, list_id: @list.id, category_id: @category.id)
     else
-      render 'new'
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @item.update(item_params)
-      redirect_to @item
-    else
-      render 'edit'
+      redirect_to(:back)
     end
   end
 
   def destroy
-    @item.destroy
+    @item = @list.items.find(params[:id]).destroy
     redirect_to list_path(@item.list, category_id: @item.list.category.id)
   end
 
@@ -38,7 +23,7 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:content)
     end
 
-    def find_item
-      @item = Item.find(params[:id])
+    def find_list
+      @list = List.find(params[:list_id])
     end
 end
