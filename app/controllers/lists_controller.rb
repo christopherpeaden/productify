@@ -1,17 +1,16 @@
 class ListsController < ApplicationController
-  before_action :find_list, only: [:show, :edit, :update, :destroy]
-  before_action :find_category, only: [:new, :edit, :show, :destroy]
+  before_action :find_category
+  before_action :find_list, except: [:new, :create]
 
   def new
     @list = List.new
   end
 
   def create
-    @category = Category.find(params[:list][:category_id])
     @list = @category.lists.create(list_params)
 
     if @list.save
-      redirect_to list_path(@list, category_id: @category.id)
+      redirect_to category_list_path(@category, @list)
     else
       render 'new'
     end
@@ -24,8 +23,6 @@ class ListsController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:list][:category_id])
-
     if @list.update(list_params)
       redirect_to @category
     else
@@ -44,11 +41,11 @@ class ListsController < ApplicationController
       params.require(:list).permit(:title, :description)
     end
 
-    def find_list
-      @list = List.find(params[:id])
-    end
-
     def find_category
       @category = Category.find(params[:category_id])
+    end
+
+    def find_list
+      @list = List.find(params[:id])
     end
 end

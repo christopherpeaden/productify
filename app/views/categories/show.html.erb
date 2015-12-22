@@ -1,12 +1,6 @@
 <h1><%= @category.title %></h1>
-  <% @category.lists.each do |list| %>
-    <p>
-      <%= link_to list.title, list_path(list, category_id: @category.id) %>
-      <%= link_to "Edit", edit_list_path(list, category_id: @category.id) %>
-      <%= link_to "Delete", list_path(list, category_id: @category.id), method: :delete, data: { confirm: "Delete this category?" } %>
-      <p><%= list.description %></p>
-    </p>
-  <% end %>
+
+  <%= render @category.lists %>
  
-  <%= link_to "New List", new_list_path(category_id: @category.id) %>
-  <%= link_to "Back", categories_path %>
+  <%= link_to "New List", new_category_list_path(@category) %>
+  <%= link_to "Back", root_path %>
