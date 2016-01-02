@@ -22,15 +22,9 @@ RSpec.describe Item do
     end 
 
     context "invalid" do
-      it "has a blank title" do
-        item.title = ""
+      it "has blank content" do
+        item.content = ""
         expect(item).to be_invalid
-      end
-
-      it "has a duplicate title" do
-        item.save
-        duplicate_item = build(:item, title: item.title)
-        expect(duplicate_item.save).to be false
       end
     end
   end

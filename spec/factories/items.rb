@@ -11,7 +11,7 @@
 
 FactoryGirl.define do
   factory :item do
-    title Faker::Name.title
+    content Faker::Name.title
     list
   end
 end
