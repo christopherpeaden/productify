@@ -1,5 +1,7 @@
-<p>
-  <%= item.content %>
-  <%= link_to "Complete", category_list_item_path(@category, @list, item), method: :delete, data: { confirm: "Delete this item?" } %>
-  <%= link_to "Add to priority list", "#" if item.priority == false %>
-</p>
+<ul>
+  <li>
+    <%= item.content %>
+    <%= link_to "Complete", category_list_item_path(@category, @list, item), method: :delete, data: { confirm: "Delete this item?" } %>
+    <%= link_to "Add to priority list", "#" if item.priority == false %>
+  </li>
+</ul>

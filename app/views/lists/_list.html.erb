@@ -1,6 +1,8 @@
-<p>
-  <%= link_to list.title, category_list_path(@category, list) %>
-  <%= link_to "Edit", edit_category_list_path(@category, list) %>
-  <%= link_to "Delete", category_list_path(@category, list), method: :delete, data: { confirm: "Delete this category?" } %>
+<ul>
+  <li>
+    <%= link_to list.title, category_list_path(@category, list) %>
+    <%= link_to "Edit", edit_category_list_path(@category, list) %>
+    <%= link_to "Delete", category_list_path(@category, list), method: :delete, data: { confirm: "Delete this category?" } %>
+  </li>
   <p><%= list.description %></p>
-</p>
+</ul>
