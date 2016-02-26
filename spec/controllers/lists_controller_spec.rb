@@ -21,9 +21,8 @@ RSpec.describe ListsController, type: :controller do
       end
 
       it "redirects to new list" do
-        post :create, list: attributes_for(:list), category_id: list.category
-
-        expect(response).to redirect_to List.first
+        post :create, list: attributes_for(:list), category_id: list.category, id: list
+        expect(response).to redirect_to category_list_url(list: list)
       end
     end
 

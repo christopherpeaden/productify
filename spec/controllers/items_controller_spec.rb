@@ -12,8 +12,8 @@ RSpec.describe ItemsController, type: :controller do
       end
 
       it "redirects to new item" do
-        post :create, item: attributes_for(:item), list_id: item.list, category_id: item.list.category
-        expect(response).to redirect_to Item.first
+        post :create, item: attributes_for(:item), list_id: item.list, category_id: item.list.category, id: 1
+        expect(response).to redirect_to category_list_url(category, list, item)
       end
     end
 
