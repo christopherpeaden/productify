@@ -25,6 +25,5 @@ group :development, :test do
   gem 'guard-rails'
   gem 'faker'
   gem 'annotate'
-  gem 'normalize-rails'
 end
 
