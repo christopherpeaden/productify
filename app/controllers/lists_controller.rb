@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   before_action :find_category
   before_action :find_list, except: [:new, :create]
+  before_action :authenticate_user!
 
   def new
     @list = List.new

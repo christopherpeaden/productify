@@ -10,7 +10,8 @@
 #
 
 class List < ActiveRecord::Base
-  has_many :items, dependent: :destroy
+  belongs_to :user
   belongs_to :category
+  has_many :items, dependent: :destroy
   validates :title, presence: true, uniqueness: true
 end

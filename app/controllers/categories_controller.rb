@@ -1,12 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def new
     @category = Category.new
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
 
     if @category.save
       redirect_to @category
@@ -22,7 +23,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   def edit
