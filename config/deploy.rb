@@ -14,7 +14,7 @@ set :pty, true
 set :ssh_options, {
   forward_agent: true,
   auth_methods: ["publickey"],
-  keys: ["/home/deploy/.ssh/AWS-2.pem"]
+  keys: ["/home/peady/.ssh/AWS-2.pem"]
 }
 # Default value for :scm is :git
 # set :scm, :git
