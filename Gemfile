@@ -14,8 +14,7 @@ gem 'rake', '~> 11.1.2'
 
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
-# gem 'capistrano-rails', group: :development
-#
+
 group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -29,3 +28,9 @@ group :development, :test do
   gem 'annotate'
 end
 
+group :development do
+  gem 'capistrano', '~> 3.5'
+  gem 'capistrano-rails', '~> 1.1', '>= 1.1.6'
+  gem 'capistrano-rbenv', '~> 2.0', '>= 2.0.4'
+  gem 'capistrano-passenger', '~> 0.2.0'
+end
