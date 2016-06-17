@@ -1,8 +1,7 @@
-<ul>
-  <li>
+<ul class="list-group"> <li class="list-group-item">
     <%= link_to list.title, category_list_path(@category, list) %>
-    <%= link_to "Edit", edit_category_list_path(@category, list) %>
-    <%= link_to "Delete", category_list_path(@category, list), method: :delete, data: { confirm: "Delete this category?" } %>
+    <%= link_to "Edit", edit_category_list_path(@category, list), class: "btn btn-default" %>
+    <%= link_to "Delete", category_list_path(@category, list), class: "btn btn-default", method: :delete, data: { confirm: "Delete this category?" } %>
   </li>
   <p><%= list.description %></p>
 </ul>

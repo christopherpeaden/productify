@@ -42,6 +42,8 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 12.0)
     arel (6.0.3)
+    autoprefixer-rails (6.3.6.2)
+      execjs
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -49,6 +51,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     capistrano (3.5.0)
       airbrussh (>= 1.0.0)
@@ -258,6 +263,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   better_errors
+  bootstrap-sass
   capistrano (~> 3.5)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.1, >= 1.1.6)
@@ -283,4 +289,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.12.5

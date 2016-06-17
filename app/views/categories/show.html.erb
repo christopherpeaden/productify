@@ -2,5 +2,4 @@
 
   <%= render @category.lists %>
  
-  <%= link_to "New List", new_category_list_path(@category) %>
-  <%= link_to "Back", root_path %>
+  <%= link_to "New List", new_category_list_path(@category), class: "btn btn-primary" %>
