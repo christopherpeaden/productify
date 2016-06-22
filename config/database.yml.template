@@ -3,7 +3,7 @@ default: &default
   pool: 5
   host: localhost
   username: peady
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: 
   timeout: 5000
 
 development:
